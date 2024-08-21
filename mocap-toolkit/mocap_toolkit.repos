@@ -1,0 +1,17 @@
+repositories:
+  apriltag_ros:
+    type: git
+    url: git@github.com:MarineRoboticsGroup/apriltag_ros.git
+    version: 6ee9f0d64e57cb4aaa92003998607124fcb9323b
+  easy_handeye:
+    type: git
+    url: git@github.com:MarineRoboticsGroup/easy_handeye.git
+    version: d37732dbaa0226b27d537a99e41a4471fa09604b
+  mocap:
+    type: git
+    url: git@github.com:MarineRoboticsGroup/mocap.git
+    version: baa1d8dcfcb0934958183e95f708823f93a81f94
+  tf_bag:
+    type: git
+    url: https://github.com/IFL-CAMP/tf_bag.git
+    version: 50d66401c2458a028f0fff75adf9c403878bb4fa
