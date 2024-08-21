@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+	<arg name="ns" default="/" />
+        <arg name="tf_parent_frame" default="world" />
+	<arg name="local" default="192.168.1.184" />
+	<arg name="server" default="192.168.1.138" />
+
+  <node pkg="mocap" type="mocap" name="optitrack" output="screen" ns="$(arg ns)">
+    <!-- General Parameters -->
+    <param name="tf_parent_frame" value="$(arg tf_parent_frame)" />
+    <param name="mocap_wrt_parent_frame" value="0 0 0 1.5708 0 1.5708" />
+    <param name="body_wrt_mocap_body" value="0 0 0 -1.5708 -1.5708 0" />
+    <param name="num_markers_missing_tol" value="4" />
+    <param name="q_diff_threshold" value="0.1" />
+    <param name="skipped_meas_pos_tol" value="3" />
+    <param name="skipped_meas_att_tol" value="20" />
+    <param name="pub_status" value="true" />
+    <param name="pub_twist" value="true" />
+    <param name="pub_accel" value="true" />
+    <param name="tf_broadcast" value="true" />
+
+    <!-- OptiTrack-specific parameters -->
+    <param name="client" value="optitrack" />
+    <param name="local" value="$(arg local)" /> <!-- IP address of the machine running rosnode -->
+    <param name="server" value="$(arg server)" /> <!-- OptiTrack windows computer -->
+    <param name="multicast_group" value="244.0.0.1" /> <!-- Determined by OptiTrack settings -->
+    <param name="command_port" value="1510" /> <!-- Determined by OptiTrack settings -->
+    <param name="data_port" value="9000" /> <!-- Determined by OptiTrack settings -->
+  </node>
+
+  <!-- Room bounds for highbay -->
+  <!-- <group ns="room_bounds">
+    <rosparam file="$(find mocap)/param/vicon.yaml" command="load" />
+  </group> -->
+
+</launch>
